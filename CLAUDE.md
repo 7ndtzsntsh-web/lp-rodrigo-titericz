@@ -42,7 +42,7 @@ Não publicar se `npm run build` falhar.
   (o `npm run build` avisa qual é).
 - Imagens: WebP, com `width`/`height` e `draggable="false"`; nenhuma imagem pode ser arrastada.
   Originais em `build/originais/` (não vão para o site, ver `.vercelignore`). Feitas com `sharp` (qualidade 80-82):
-  `rodrigo-retrato*.webp` de `rodrigo_1.png` (seção Sobre); `rodrigo_2.png` foi usada na prévia do WhatsApp;
+  `rodrigo-retrato*.webp` (480, 640 e 819 px) de `rodrigo_1.png` (seção Sobre); `rodrigo_2.png` foi usada na prévia do WhatsApp;
   `og-capa.jpg` (prévia no WhatsApp, 1200x630) e os ícones com as fontes do próprio site.
 - Nada de `loading="lazy"` dentro de bloco com `data-aos` (no Studio +Movimento, o conteúdo não apareceu no
   celular do dono).
@@ -51,16 +51,22 @@ Não publicar se `npm run build` falhar.
 - Animações: AOS (`js/aos.*.js`, `css/aos.*.css`) + `js/app.js` (menu do celular, números que contam, menu que
   escurece ao rolar). Se o AOS não carregar, o `app.js` põe `sem-animacao` e tudo aparece parado (nunca em branco).
   Quem pede menos animação no aparelho vê tudo parado.
-- Segurança: nota A+ 150/150 no MDN HTTP Observatory. Não pode cair.
+- Segurança: nota A+ 150/150 no MDN HTTP Observatory. Não pode cair. A CSP tem `connect-src 'self'` (e não 'none'):
+  com 'none' o Lighthouse não conseguia ler o robots.txt e o llms.txt e acusava "robots.txt inválido" (SEO 92).
+- Lighthouse (28/09/2026, depois dos ajustes): Acessibilidade, Práticas recomendadas, SEO e Navegação agêntica 100;
+  Desempenho 97-100. `llms.txt` = resumo para assistentes de IA (precisa de links em Markdown).
 
 ## Conteúdo (fonte: documento do cliente "Rodrigo_Titericz_Conteudo_Site.docx", 28/09/2026)
 
 - Todo o texto do site vem do documento, sem inventar. Em 28/09/2026 conferi linha por linha: as 61 linhas
   estão no site (as 7 áreas, os 8 cargos, formação, idiomas, experiência internacional, publicações,
   reconhecimento e contato).
+- Pedido do dono (28/09): no Sobre, "formado pela Univali em 1996" (o documento diz "(1996)"); no número da primeira tela,
+  "1996 · formado pela Univali". No contato, o link wa.me virou o botão verde "Chamar no WhatsApp" (com mensagem pronta).
 - Advocacia tem regra de publicidade da OAB (Provimento 205/2021): texto informativo, **sem promessa de resultado**,
   sem preço e sem "captação" agressiva. Por isso "Experiência focada em resultados" virou "Uma trajetória de quase
-  30 anos". Não acrescentar depoimento, número de causas ganhas nem frase de venda.
+  30 anos". Não acrescentar depoimento, número de causas ganhas nem frase de venda. "Especialista/especialidade" só com título
+  de especialização: por isso o rótulo das áreas é "Atuação" e o título do contato é "Fale com Rodrigo Titericz".
 - Contato: WhatsApp e telefone (48) 99180-1107 (`wa.me/5548991801107`); e-mails rodrigo@titericz.com e
   rodrigotitericz@gmail.com; Rua Adolfo Melo, 35, 12º andar, Florianópolis/SC (o documento não traz CEP).
 

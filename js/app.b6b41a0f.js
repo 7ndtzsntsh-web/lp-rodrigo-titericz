@@ -13,8 +13,14 @@ var menu = document.querySelector('.menu-topo');
 function aoRolar() {
   if (menu) menu.classList.toggle('rolou', window.scrollY > 40);
 }
-window.addEventListener('scroll', aoRolar, { passive: true });
-aoRolar();
+// Lê a rolagem no próximo quadro (ler logo depois de mudar classes força o navegador a recalcular a página).
+var agendado = false;
+window.addEventListener('scroll', function () {
+  if (agendado) return;
+  agendado = true;
+  requestAnimationFrame(function () { agendado = false; aoRolar(); });
+}, { passive: true });
+requestAnimationFrame(aoRolar);
 
 // Menu do celular: abre e fecha no botão, e fecha ao escolher uma seção.
 var botaoMenu = document.getElementById('botao-menu');
