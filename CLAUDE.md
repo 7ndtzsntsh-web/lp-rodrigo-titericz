@@ -61,8 +61,13 @@ Não publicar se `npm run build` falhar.
 - Todo o texto do site vem do documento, sem inventar. Em 28/09/2026 conferi linha por linha: as 61 linhas
   estão no site (as 7 áreas, os 8 cargos, formação, idiomas, experiência internacional, publicações,
   reconhecimento e contato).
-- Pedido do dono (28/09): no Sobre, "formado pela Univali em 1996" (o documento diz "(1996)"); no número da primeira tela,
-  "1996 · formado pela Univali". No contato, o link wa.me virou o botão verde "Chamar no WhatsApp" (com mensagem pronta).
+- Pedidos do dono (28/09): no Sobre, "formado pela Univali em 1996" (o documento diz "(1996)"). Nos números da primeira
+  tela a legenda vem EM CIMA do número, para ler como frase: "Formado pela Univali em / 1996" ("1996 formado pela Univali"
+  ficava confuso). No cartão Telefone / WhatsApp, botão dourado "Falar no WhatsApp" igual aos outros (o verde "Chamar no
+  WhatsApp" ele achou informal). Todos os botões de WhatsApp abrem com a mensagem pronta.
+- E-mail: o dono disse que "não ia". O servidor do titericz.com funciona (Postfix e IMAP respondem em 170.84.17.242). O link
+  mailto: só abre se o aparelho tiver programa de e-mail configurado (em muito computador não abre nada), e o teste vai
+  para a caixa do Rodrigo, não do dono. Por isso: assunto "Contato pelo site" e botão "Copiar" ao lado de cada e-mail.
 - Advocacia tem regra de publicidade da OAB (Provimento 205/2021): texto informativo, **sem promessa de resultado**,
   sem preço e sem "captação" agressiva. Por isso "Experiência focada em resultados" virou "Uma trajetória de quase
   30 anos". Não acrescentar depoimento, número de causas ganhas nem frase de venda. "Especialista/especialidade" só com título
