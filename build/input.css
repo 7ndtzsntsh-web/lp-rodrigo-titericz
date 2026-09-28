@@ -1,0 +1,126 @@
+/* Fontes hospedadas no próprio site (antes vinham do Google Fonts, que a segurança do site bloqueia).
+   São fontes variáveis: um arquivo cobre toda a faixa de pesos. */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/outfit-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/playfair-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/playfair-italic-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* As animações de entrada (AOS fade-right/fade-left) começam fora da tela.
+     Sem cortar também no <html>, a página ganha rolagem lateral no celular.
+     "clip" corta sem criar área de rolagem e não atrapalha position: fixed. */
+  html {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+  body {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+  /* O menu fixo no topo não pode cobrir o título da seção ao clicar num link do menu. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+  /* Imagens não podem ser arrastadas nem abrir o menu de "salvar imagem" ao segurar o dedo. */
+  img {
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  :focus-visible {
+    outline: 2px solid #C5A059;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .glass-dark {
+    @apply bg-zinc-950/60 backdrop-blur-xl border border-white/10;
+  }
+  .glass-light {
+    @apply bg-zinc-900/70 backdrop-blur-xl border border-white/10;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-white;
+  }
+  .dots-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  /* Brilho de fundo feito com gradiente (antes era blur de 120px, pesado na placa de vídeo do celular). */
+  .brilho-ouro {
+    background: radial-gradient(closest-side, rgba(197, 160, 89, 0.22), transparent);
+  }
+  .brilho-cinza {
+    background: radial-gradient(closest-side, rgba(113, 113, 122, 0.22), transparent);
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+}
+
+/* Menu no topo: mais escuro depois que a pessoa rola a página (classe posta pelo js/app.js). */
+.menu-topo.rolou {
+  @apply bg-black/80 shadow-black/60;
+}
+
+/* Linha do tempo: a linha dourada "cresce" quando a seção aparece (classe posta pelo AOS). */
+.linha-tempo::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: linear-gradient(to bottom, #C5A059, rgba(255, 255, 255, 0.1));
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.linha-tempo.aos-animate::before,
+.sem-animacao .linha-tempo::before {
+  transform: scaleY(1);
+}
+
+/* Se o arquivo de animação não carregar, nada pode ficar invisível (aconteceu: o aos.js era uma
+   página "Redirecting" e o site ficou sem animação; com o CSS carregado, ficaria em branco). */
+.sem-animacao [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-ping-slow {
+    animation: none !important;
+  }
+  .linha-tempo::before {
+    transform: scaleY(1);
+    transition: none;
+  }
+}
