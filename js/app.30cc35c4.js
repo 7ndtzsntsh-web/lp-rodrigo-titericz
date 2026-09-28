@@ -78,3 +78,33 @@ if (!calmo && 'IntersectionObserver' in window && numeros.length) {
 document.addEventListener('dragstart', function (e) {
   if (e.target && e.target.tagName === 'IMG') e.preventDefault();
 });
+
+// Botão "Copiar" ao lado do e-mail: funciona mesmo em computador sem programa de e-mail configurado
+// (aí o link mailto: não abre nada, e parecia que o e-mail "não ia").
+function copiarTexto(texto) {
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texto);
+  return new Promise(function (ok, falha) {
+    var area = document.createElement('textarea');
+    area.value = texto;
+    area.setAttribute('readonly', '');
+    area.className = 'fixed opacity-0 pointer-events-none';
+    document.body.appendChild(area);
+    area.select();
+    var deu = false;
+    try { deu = document.execCommand('copy'); } catch (e) { deu = false; }
+    document.body.removeChild(area);
+    if (deu) ok(); else falha();
+  });
+}
+document.querySelectorAll('[data-copiar]').forEach(function (botao) {
+  var original = botao.textContent;
+  botao.addEventListener('click', function () {
+    copiarTexto(botao.getAttribute('data-copiar')).then(function () {
+      botao.textContent = 'Copiado!';
+    }, function () {
+      botao.textContent = 'Selecione e copie';
+    }).then(function () {
+      setTimeout(function () { botao.textContent = original; }, 2200);
+    });
+  });
+});
