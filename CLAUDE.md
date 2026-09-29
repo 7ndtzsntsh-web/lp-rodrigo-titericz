@@ -68,6 +68,11 @@ Não publicar se `npm run build` falhar.
 - E-mail: o dono disse que "não ia". O servidor do titericz.com funciona (Postfix e IMAP respondem em 170.84.17.242). O link
   mailto: só abre se o aparelho tiver programa de e-mail configurado (em muito computador não abre nada), e o teste vai
   para a caixa do Rodrigo, não do dono. Por isso: assunto "Contato pelo site" e botão "Copiar" ao lado de cada e-mail.
+- **Mudanças pedidas pelo cliente depois do documento (28/09/2026, pelo WhatsApp) — valem mais que o documento:**
+  área 05 "Direito Tributário e Administração Pública" trocada por **Direito Imobiliário** (processos administrativos, compra e
+  venda, posse e propriedade, REURB, due diligence imobiliária); nova área 08 **Direito Aeronáutico** (responsabilidade civil,
+  direitos do passageiro, drones/RPAS); são 8 áreas (o número da primeira tela e o llms.txt acompanham). Na trajetória, o último
+  cargo ficou "Desde 1997 · Fibratur Turismo" (ele pediu para tirar o 2024 e o "Dom Bosco – Escola Inteligente").
 - Advocacia tem regra de publicidade da OAB (Provimento 205/2021): texto informativo, **sem promessa de resultado**,
   sem preço e sem "captação" agressiva. Por isso "Experiência focada em resultados" virou "Uma trajetória de quase
   30 anos". Não acrescentar depoimento, número de causas ganhas nem frase de venda. "Especialista/especialidade" só com título
