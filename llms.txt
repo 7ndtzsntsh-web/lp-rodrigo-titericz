@@ -8,9 +8,10 @@
 - Direito do Consumidor: contencioso de alto risco e complexidade, e representação junto ao PROCON
 - Direito Trabalhista: advocacia preventiva, contencioso e negociação sindical
 - Proteção de Dados (LGPD): atuação como DPO, políticas de privacidade e procedimentos internos
-- Direito Tributário e Administração Pública: legislação tributária, licitações, pareceres e relação com o MP, os TJs e os tribunais de contas
+- Direito Imobiliário: abertura e análise de processos administrativos, compra e venda, direito de posse e propriedade, regularização fundiária (REURB) e due diligence imobiliária
 - Direito Desportivo: contratos de atletas, patrocínios e representação junto às entidades do desporto
 - Terceiro Setor: criação e gestão de associações sem fins econômicos, com ênfase em políticas para pessoas com deficiência (PCD)
+- Direito Aeronáutico: responsabilidade civil e direitos do passageiro, e uso de drones (RPAS)
 
 ## Formação
 
@@ -23,7 +24,7 @@
 
 - [Site de Rodrigo Titericz](https://lp-rodrigo-titericz.vercel.app/): apresentação, áreas de atuação, trajetória e contato
 - [Sobre](https://lp-rodrigo-titericz.vercel.app/#sobre): formação e carreira
-- [Áreas de atuação](https://lp-rodrigo-titericz.vercel.app/#atuacao): as sete áreas em que atua
+- [Áreas de atuação](https://lp-rodrigo-titericz.vercel.app/#atuacao): as oito áreas em que atua
 - [Trajetória profissional](https://lp-rodrigo-titericz.vercel.app/#trajetoria): cargos de 1997 a 2026
 - [Formação e reconhecimento](https://lp-rodrigo-titericz.vercel.app/#formacao): formação, experiência internacional, publicações e a Medalha Francisco Dias Velho (2022)
 
