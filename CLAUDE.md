@@ -105,6 +105,12 @@ Não publicar se `npm run build` falhar.
 - Conferir: `vercel domains verify titericz.com.br --scope vanguard-web`. Trocar de domínio de novo = trocar canonical,
   og:url, og:image, twitter:image, ld+json (e o hash na CSP), sitemap, robots e llms.txt, e publicar só depois do DNS.
 
+## Google (Search Console)
+
+- Site cadastrado no Google Search Console (29/09/2026) na conta Google do dono, propriedade
+  https://titericz.com.br/. A verificação é a meta tag google-site-verification no head do index.html: **não remover**
+  (senão o Google tira o acesso ao painel). Lá dá para ver se o site já aparece no Google, enviar o sitemap e pedir indexação.
+
 ## Armadilhas que já aconteceram (aqui ou nos sites com a mesma base: Studio +Movimento e Rafael Mansur)
 
 1. `js/aos.js` e `css/aos.css` eram uma página de "Redirecting" baixada por engano: as animações nunca
