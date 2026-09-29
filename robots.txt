@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://titericz.com/sitemap.xml
+Sitemap: https://titericz.com.br/sitemap.xml
