@@ -1,7 +1,7 @@
 # Site do Rodrigo Titericz — regras para o Claude
 
 Site vendido pela Vanguard Web Studio a um cliente real: Rodrigo Titericz, advogado (OAB/SC 11.670), Florianópolis.
-No ar em https://lp-rodrigo-titericz.vercel.app (projeto Vercel `lp-rodrigo-titericz`, equipe `vanguard-web`;
+No ar em **https://titericz.com** (e em https://lp-rodrigo-titericz.vercel.app, que continua abrindo como reserva) (projeto Vercel `lp-rodrigo-titericz`, equipe `vanguard-web`;
 push na `main` publica sozinho). Dado errado ou site quebrado expõe o dono na frente do cliente.
 
 ## Como trabalhar
@@ -82,10 +82,26 @@ Não publicar se `npm run build` falhar.
 
 ## A confirmar com o cliente (não inventar)
 
-- Domínio: o site antigo apontava para rodrigotitericz.com.br, que **não existe**. O cliente já tem
-  **titericz.com** (é o do e-mail; hoje o endereço mostra outro serviço, da jspnet). Se o site for para um
-  domínio próprio, trocar canonical, og:url, og:image, twitter:image, ld+json (e o hash na CSP), sitemap e robots.
 - Mapa do Google embutido: não pus (o documento não pede); há o link "Ver no mapa".
+
+## Domínio titericz.com (definido pelo dono em 28/09/2026)
+
+- Registrado na **GoDaddy** desde 2015, pago até **27/11/2027** (quem renova é o cliente). O DNS também é da GoDaddy
+  (ns33/ns34.domaincontrol.com). Quem tem o login da GoDaddy é o cliente (ou a jspnet, que cuida do e-mail dele).
+- **O e-mail do Rodrigo mora na jspnet** e usa este domínio: MX (mx.petry.net.br, mail.jspnet.com.br), TXT do SPF e os
+  endereços mail, webmail, smtp, pop, imap, painel e ftp. **Nunca mexer nesses registros nem trocar os nameservers**
+  (a Vercel sugere os dela; trocar apagaria o e-mail). Para o site, só estes registros na GoDaddy:
+  - `A` `@` -> `216.198.79.1` e `A` `@` -> `64.29.17.1` (no lugar do A antigo 170.84.17.243, que só mostrava "It works!")
+  - `CNAME` `www` -> `ba220d5fe8ed608f.vercel-dns-017.com` (no lugar do CNAME sites.jspnet.com.br)
+  Valores de `vercel domains verify titericz.com --scope vanguard-web` (conferir de novo se a Vercel mudar).
+- Na Vercel: titericz.com e www.titericz.com no projeto; www redireciona (308) para titericz.com. O endereço .vercel.app
+  NÃO redireciona: fica de reserva (se o domínio vencer ou o DNS quebrar, o link antigo continua abrindo). O canonical
+  aponta para titericz.com, então o Google não conta o site duas vezes.
+- **HSTS sem includeSubDomains e sem preload** (só `max-age`): painel.titericz.com (da jspnet) tem certificado inválido e
+  ficaria inacessível para quem visitou o site. Por isso a nota no domínio é **A+ 145** (os +5 do vercel.app vêm de o
+  vercel.app estar na lista de preload dos navegadores). Não pôr o titericz.com nessa lista.
+- Publicar a troca de endereço (canonical, og:url, og:image, ld+json, sitemap, robots, llms.txt) só DEPOIS que o DNS
+  estiver apontando para a Vercel: antes disso a prévia do WhatsApp buscaria a imagem num endereço que ainda não é o site.
 
 ## Armadilhas que já aconteceram (aqui ou nos sites com a mesma base: Studio +Movimento e Rafael Mansur)
 

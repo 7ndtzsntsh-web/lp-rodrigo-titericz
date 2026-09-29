@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lp-rodrigo-titericz.vercel.app/sitemap.xml
+Sitemap: https://titericz.com/sitemap.xml
