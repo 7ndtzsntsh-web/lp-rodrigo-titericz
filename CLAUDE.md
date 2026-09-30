@@ -116,6 +116,14 @@ Não publicar se `npm run build` falhar.
   https://titericz.com.br/. A verificação é a meta tag google-site-verification no head do index.html: **não remover**
   (senão o Google tira o acesso ao painel). Lá dá para ver se o site já aparece no Google, enviar o sitemap e pedir indexação.
 
+- **Como o site aparece na busca (30/09/2026):** apareceu com um globo genérico no lugar do ícone e com o nome "titericz.com.br".
+  Correções: ícones em múltiplos de 48 px (favicon.ico na raiz com 16/32/48, img/favicon.png 96, img/favicon-192.png), gerados por
+  build/icones.cjs a partir de build/icones.html ("RT" dourado); e dados estruturados em @graph com WebSite (nome do site
+  "Rodrigo Titericz"), Person (com sameAs do LinkedIn linkedin.com/in/rodrigotitericz) e Attorney. O Google demora dias a semanas
+  para trocar o ícone e o nome. O Instagram @titericz é pessoal: só pôr no sameAs se o cliente autorizar.
+- Para subir nas buscas pelo nome: o que mais pesa é o cliente pôr o link do site no LinkedIn e no Instagram, e criar o Perfil
+  da Empresa no Google (ele não tem). Isso só ele pode fazer.
+
 ## Armadilhas que já aconteceram (aqui ou nos sites com a mesma base: Studio +Movimento e Rafael Mansur)
 
 1. `js/aos.js` e `css/aos.css` eram uma página de "Redirecting" baixada por engano: as animações nunca
