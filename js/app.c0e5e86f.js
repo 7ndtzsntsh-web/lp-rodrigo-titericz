@@ -1,5 +1,10 @@
 // Animações de entrada. Quem pediu menos animação no sistema vê tudo parado.
-var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Robôs de busca (Google, Bing...) também veem tudo parado: eles não rolam a página, e com a animação o conteúdo
+// abaixo da primeira tela ficava invisível para eles (visto no teste ao vivo do Google Search Console em 29/09/2026:
+// só o topo aparecia). O conteúdo é o mesmo para pessoas e robôs; muda só a animação.
+// Só nomes de robôs de busca conhecidos: "bot" solto pegava celular de verdade (o modelo CUBOT).
+var robo = /Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|AdsBot-Google|Mediapartners-Google|bingbot|BingPreview|DuckDuckBot|YandexBot|Baiduspider|Applebot|Slurp/i.test(navigator.userAgent);
+var calmo = robo || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (window.AOS) {
   AOS.init({ once: true, offset: 60, duration: 800, easing: 'ease-out-cubic', disable: calmo });
 } else {
