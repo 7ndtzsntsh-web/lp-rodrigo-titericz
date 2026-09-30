@@ -54,6 +54,8 @@ Não publicar se `npm run build` falhar.
   **Robôs de busca também veem tudo parado** (lista de nomes no começo do app.js: Googlebot, Google-InspectionTool, bingbot...).
   Motivo (29/09/2026): o robô do Google não rola a página, e 34 dos 40 blocos ficavam invisíveis para ele, com os números
   em 0. Não usar "bot" solto na lista: pega celular de verdade (o modelo CUBOT). O conteúdo é o mesmo; muda só a animação.
+- Primeira tela com altura **min(95vh, 60rem)**, não só 95vh: o Google renderiza com uma tela altíssima, e com 95vh a seção
+  virava 11.400 px com o título a 5.362 px do topo (a captura do Search Console mostrava só o menu). Não usar vh sem limite.
 - Segurança: nota A+ 150/150 no MDN HTTP Observatory. Não pode cair. A CSP tem `connect-src 'self'` (e não 'none'):
   com 'none' o Lighthouse não conseguia ler o robots.txt e o llms.txt e acusava "robots.txt inválido" (SEO 92).
 - Lighthouse (28/09/2026, depois dos ajustes): Acessibilidade, Práticas recomendadas, SEO e Navegação agêntica 100;
