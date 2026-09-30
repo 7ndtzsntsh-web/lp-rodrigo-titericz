@@ -51,6 +51,9 @@ Não publicar se `npm run build` falhar.
 - Animações: AOS (`js/aos.*.js`, `css/aos.*.css`) + `js/app.js` (menu do celular, números que contam, menu que
   escurece ao rolar). Se o AOS não carregar, o `app.js` põe `sem-animacao` e tudo aparece parado (nunca em branco).
   Quem pede menos animação no aparelho vê tudo parado.
+  **Robôs de busca também veem tudo parado** (lista de nomes no começo do app.js: Googlebot, Google-InspectionTool, bingbot...).
+  Motivo (29/09/2026): o robô do Google não rola a página, e 34 dos 40 blocos ficavam invisíveis para ele, com os números
+  em 0. Não usar "bot" solto na lista: pega celular de verdade (o modelo CUBOT). O conteúdo é o mesmo; muda só a animação.
 - Segurança: nota A+ 150/150 no MDN HTTP Observatory. Não pode cair. A CSP tem `connect-src 'self'` (e não 'none'):
   com 'none' o Lighthouse não conseguia ler o robots.txt e o llms.txt e acusava "robots.txt inválido" (SEO 92).
 - Lighthouse (28/09/2026, depois dos ajustes): Acessibilidade, Práticas recomendadas, SEO e Navegação agêntica 100;
